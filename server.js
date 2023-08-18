@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 
 const friendsRouter = require('./routes/friends.router');
 const messagesRouter = require('./routes/messages.router');
@@ -14,6 +15,7 @@ app.use((req, res, next) => {
     const delta = Date.now() - start;
     console.log(`${req.method} ${req.baseUrl}${req.url} ${delta}ms`);
 });
+app.use('/site', express.static(path.join(__dirname, 'public')));
 // express.json is a middleware It parses incoming requests with JSON payloads and is based on body-parser.
 app.use(express.json());
 
