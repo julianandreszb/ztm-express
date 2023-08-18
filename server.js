@@ -24,8 +24,8 @@ app.use('/site', express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.render('index-view', {
-        title: 'Custom title',
+    res.render('index', {
+        title: 'This is the index view',
         caption: 'This is a view HBS template content',
     });
 });
